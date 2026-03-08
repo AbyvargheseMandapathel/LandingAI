@@ -1,0 +1,171 @@
+{
+    "title": "Health Plan Benefits and Coverage Extraction Schema",
+    "description": "Schema for extracting key benefit and coverage information from a health plan SBC or benefits document.",
+    "type": "object",
+    "properties": {
+        "BenefitPlanName": {
+            "type": "string",
+            "nullable": true
+        },
+        "LOB": {
+            "type": "string",
+            "nullable": true
+        },
+        "Deductible": {
+            "type": "object",
+            "properties": {
+                "Applicable": {
+                    "type": "boolean",
+                    "nullable": true
+                },
+                "ServicesCoveredBeforeDeductible": {
+                    "type": "string",
+                    "nullable": true
+                },
+                "SpecificServiceDeductibles": {
+                    "type": "string",
+                    "nullable": true
+                }
+            },
+            "required": [
+                "Applicable",
+                "ServicesCoveredBeforeDeductible",
+                "SpecificServiceDeductibles"
+            ]
+        },
+        "OutpatientServices": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "MedicalEvent": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "Service": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "NetworkCost": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "NonNetworkCost": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "LimitationsExceptions": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "MedicalEvent",
+                    "Service",
+                    "NetworkCost",
+                    "NonNetworkCost",
+                    "LimitationsExceptions"
+                ]
+            }
+        },
+        "PrescriptionDrugCoverage": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "DrugType": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "NetworkCost": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "NonNetworkCost": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "LimitationsExceptions": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "DrugType",
+                    "NetworkCost",
+                    "NonNetworkCost",
+                    "LimitationsExceptions"
+                ]
+            }
+        },
+        "OtherMedicalEvents": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "MedicalEvent": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "Service": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "NetworkCost": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "NonNetworkCost": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "LimitationsExceptions": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "required": [
+                    "MedicalEvent",
+                    "Service",
+                    "NetworkCost",
+                    "NonNetworkCost",
+                    "LimitationsExceptions"
+                ]
+            }
+        },
+        "Exclusions": {
+            "type": "array",
+            "description": "Services the plan does not cover under any circumstance.",
+            "items": {
+                "type": "string",
+                "nullable": true
+            }
+        },
+        "OtherCoveredServices": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "nullable": true
+            }
+        },
+        "PlanLimitations": {
+            "type": "array",
+            "description": "Plan-wide benefit limitations and exceptions that affect coverage or cost-sharing, such as visit limits, pre-certification requirements, penalties, or coverage conditions. Excludes legal notices and regulatory boilerplate.",
+            "items": {
+                "type": "string",
+                "nullable": true
+            }
+        }
+    },
+    "required": [
+        "BenefitPlanName",
+        "LOB",
+        "Deductible",
+        "OutpatientServices",
+        "PrescriptionDrugCoverage",
+        "OtherMedicalEvents",
+        "Exclusions",
+        "OtherCoveredServices",
+        "PlanLimitations"
+    ]
+}

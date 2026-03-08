@@ -1,0 +1,17 @@
+{
+  "csv_columns_mapping": [
+    {
+      "id": "extraction.OutpatientServices.MedicalEvent",
+      "label": "New Custom Field"
+    },
+    {
+      "id": "extraction.OutpatientServices.Service",
+      "label": "New Custom Field"
+    },
+    {
+      "id": "extraction.OutpatientServices.NetworkCost",
+      "label": "New Custom Field"
+    }
+  ],
+  "orientation": "horizontal"
+}

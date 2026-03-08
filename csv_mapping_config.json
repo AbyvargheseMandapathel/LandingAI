@@ -1,0 +1,13 @@
+{
+  "csv_columns_mapping": [
+    "BenefitPlanName",
+    "Deductible",
+    "OutpatientServices",
+    "PrescriptionDrugCoverage",
+    "OtherMedicalEvents",
+    "Exclusions",
+    "OtherCoveredServices",
+    "PlanLimitations",
+    "LOB"
+  ]
+}
